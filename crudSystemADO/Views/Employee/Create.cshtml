@@ -1,0 +1,127 @@
+﻿﻿
+@model crudSystemADO.Models.Employee
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="text-center text-primary">Add Employee</h1>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-action="Create">
+                        <div class="form-group m-3">
+                            <label class="d-block text-black" asp-for="FirstName"></label>
+                            <input type="text" asp-for="FirstName" class="from-control w-100" placeholder="Enter First Name" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group m-3">
+                            <label class="d-block" asp-for="LastName"></label>
+                            <input type="text" asp-for="LastName" class="from-control w-100" placeholder="Enter Last Name" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        @*-----------------------------------------------------------------------------------------*@
+                        <div class="form-group m-3">
+                            @Html.LabelFor(model => model.Status,htmlAttributes:new{@class ="control-label col-md-2"})
+                            <div class="col-md-10">
+                                <label class="radio-inline">
+                                    @Html.RadioButtonFor(model => model.Status,"True",new{@name ="status"})
+                                    True
+                                </label>
+                                <label class="radio-inline">
+                                    @Html.RadioButtonFor(model => model.Status,"False",new{@name ="status"})
+                                    False
+                                </label>
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            </div>
+                        </div>
+                        @*-----------------------------------------------------------------------------------------*@
+
+                        @*<div class="form-group m-3">
+                        <label class="d-block" asp-for="Status"></label>
+                        <input type="text" asp-for="Status" class="from-control w-100" placeholder="Enter your status" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>*@
+
+                        <div class="form-group m-3">
+                            <p>Age</p>
+                            <input type="text" class="from-control w-100" placeholder="Enter your age" onkeypress="return ValidNumeric()">
+                        </div>
+
+
+                        <div class="form-group m-3">
+                            <p>State</p>
+                            <select class="form-select" asp-for="State" aria-label="Default select example">
+                                <option selected>--Selecet State--</option>
+                                <option asp-for="State" value="punjab">punjab</option>
+                                <option asp-for="State" value="sindh">sindh</option>
+                                <option asp-for="State" value="kpk">kpk</option>
+                            </select>
+                            <span asp-validation-for="State" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group m-3">
+                            <h5>Intrested In</h5>
+                            <input class="form-check-input" type="checkbox" value="true" id="Checkboxx" asp-for="CheckBox1" >
+                            <label class="form-check-label"  for="Checkboxx" asp-for="CheckBox1">
+                                Java
+                            </label>
+                            <input class="form-check-input" type="checkbox" value="true" id="Checkbox" asp-for="CheckBox2" >
+                            <label class="form-check-label" for="Checkbox" asp-for="CheckBox2">
+                                C#
+                            </label>
+                        </div>
+                        
+                            
+                        
+
+
+
+
+
+                        @* <div class="form-group m-3">
+                        <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" asp-for="flexCheckChecked" checked>
+                        <label class="form-check-label" asp-for="flexCheckChecked">
+                        remember me
+                        </label>
+                        </div>
+                        </div>*@
+
+                        @*<div class="form-group m-3">
+                        <label class="d-block" asp-for="State"></label>
+                        <input type="text" asp-for="State" class="from-control w-100" placeholder="Enter State Name" />
+                        <span asp-validation-for="State" class="text-danger"></span>
+                        </div>*@
+
+                        <div class=" form-group w-100">
+                            <input type="submit" value="Submit" id="createButton" class="btn btn-sm btn-outline-success float-end" />
+                        </div>
+                        <div>
+                            <a class="btn btn-sm btn-primary m-1" asp-controller="Employee" asp-action="Index">
+                                Back
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+@section scripts{
+
+    <script>
+        function ValidNumeric() {
+
+            var charCode = (event.which) ? event.which : event.keyCode;
+            if (charCode >= 48 && charCode <= 57) { return true; }
+            else { return false; }
+        }
+    </script>
+}

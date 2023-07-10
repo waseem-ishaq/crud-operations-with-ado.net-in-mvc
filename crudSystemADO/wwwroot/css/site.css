@@ -1,0 +1,43 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/*Login or SingUp page*/
+.body {
+    height: 100vh;
+   /* background: rgb(63, 94, 251);
+    background: radial-gradient( circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100% );*/
+}
+
+.btn-login {
+    background: rgb(63, 94, 251);
+    background: radial-gradient( circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100% );
+    color: white;
+}
+.main-div {
+    width: 100vw;
+}
+.nav-image {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #6b4de6;
+}

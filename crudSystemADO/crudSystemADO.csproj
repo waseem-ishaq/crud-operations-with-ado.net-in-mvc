@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\LoginDataAccessLayer.cs" />
+    <Compile Remove="Views\Employee\Index.cs" />
+    <Compile Remove="Views\Employee\Index11.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Employee\Create1.cshtml" />
+    <Content Remove="Views\Employee\Index11.cshtml" />
+    <Content Remove="Views\Login\Login.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GoogleAuthentication" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Facebook" Version="7.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.8" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.7" />
+    <PackageReference Include="MySqlConnector" Version="2.2.6" />
+  </ItemGroup>
+
+</Project>
