@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 using System.Security.Claims;
 
+
 namespace crudSystemADO.Controllers
 {
 	public class EmployeeController : Controller
@@ -19,8 +20,10 @@ namespace crudSystemADO.Controllers
 		// GET: Student  
 		public IActionResult Index()
 		{
+			ViewBag.Email = TempData.Peek("Email");
+			var Email = ViewBag.Email;
 
-            if (User.Identity.IsAuthenticated || TempData["Email"]!=null)
+            if (User.Identity.IsAuthenticated || Email != null)
 			{
                 TempData["Profile"] = User.FindFirstValue("urn:google:picture");
                 IEnumerable<Employee> employees = employeeDataAccessLayer.GetAllEmployee();
@@ -30,8 +33,6 @@ namespace crudSystemADO.Controllers
 			{
 				return RedirectToAction("LoginPage", "Login");
 			}
-			
-
         }
 
 		// GET: Student/Details/5  

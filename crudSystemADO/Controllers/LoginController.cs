@@ -15,7 +15,7 @@ namespace crudSystemADO.Controllers
     public class Login: Controller
     {
         private readonly string connectionString;
-
+        
         public Login()
         {
             connectionString = ConnectionString.CName;
